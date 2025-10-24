@@ -6,8 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'ANCM 2024'
-copyright = 'Anna Bavaresco 2024'
+project = 'ANCM 2025'
+copyright = 'Anna Bavaresco 2025'
 author = 'Anna Bavaresco'
 release = '0.1'
 
