@@ -63,53 +63,9 @@ For each of the above criteria, you will receive a score ranging from 0 to 2:
    they require. When averaging the scores for the aforementioned criteria, their 
    prominence in the assignment will also be taken into account. 
 
-+++++++++++++++
-FAQs
-+++++++++++++++
-
- **What do I have to submit? A notebook, a PDF, or both?**
-
-   You should submit both a notebook and a PDF. The notebook should include the code to reproduce your analyses/results.
-   As for the PDF, please include there any written answer/report that the assignment/question require. In addition, consider including 
-   some figures or tables, if you think it might be convenient to present your
-   results more effectively. Tables and figures will not count toward the page/word limit (if there is any).
-
- **When will I see the grade for my assignment?**
-
-   Normally, the TA aims to publish grades for one assignment before the submission deadline of the next one. 
-
- **Can I work on the notebooks together with coursemates?**
-
-   While assignments are submitted and graded **individually**, you are allowed to discuss answers and solutions
-   with coursemates. Note that the goal should always be to learn contents better. Copying code or textual answers
-   from your classmates will result in a deduction of points from your grade.
-
- **Can I use AI to help me with the notebooks?**
-
-   Yes—but responsibly. AI should be a learning tool, **not** a shortcut to submit
-   the best possible report with the minimum effort. Note that using LLMs to improve the writing style of your 
-   report is also discouraged; writing effectively is part of the skills that should be learnt in a research Master,
-   not some add-on that can be delegated to AI.
-
- **Due to unforeseeable circumstances, I will be unable to submit the assignment(s) within the deadline. What should I do?**
-
-   Contact the TA or the course coordinator. If you have good reasons for being unable to submit the assignment,
-   they will most likely understand and do their best to find a solution that is suitable for you.
-
-**I have accidentally submitted the wrong PDF/notebook. Will this result in a deduction of points?**
-
-   Yes. Unfortunately, it is impossible for TAs to tell honest mistakes from skeaky attempts to get deadline extensions. 
-   In addition, ensuring the submitted files are the correct ones is part of what distinguishes a good assignment from 
-   a sloppy one. 
-
-**Is computer lab attendance mandatory?**  
-   Attending computer labs is not mandatory, so no need to worry if you have schedule conflicts. If you don't, however,
-   consider attending the computer labs in person, as it will make it easier for you to ask clarification questions to the 
-   TA(s) and/or discuss any doubts you may have with coursemates.
-
 
 +++++++++++++++
-Contents:
+Contents
 +++++++++++++++
 
    .. Section 1: Week 1
@@ -146,5 +102,54 @@ Contents:
 
    week_4/4_Vision,_Convolutions_and_Recurrence.ipynb
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Project Inspiration:
 
-   
+   project_ideas.ipynb
+
+
++++++++++++++++
+FAQs
++++++++++++++++
+
+**What do I have to submit? A notebook, a PDF, or both?**
+.. toggle::
+   You should submit both a notebook and a PDF. The notebook should include the code to reproduce your analyses/results.
+   As for the PDF, please include there any written answer/report that the assignment/question require. In addition, consider including 
+   some figures or tables, if you think it might be convenient to present your
+   results more effectively. Tables and figures will not count toward the page/word limit (if there is any).
+
+**When will I see the grade for my assignment?**
+
+Normally, the TA aims to publish grades for one assignment before the submission deadline of the next one. 
+
+**Can I work on the notebooks together with coursemates?**
+
+While assignments are submitted and graded **individually**, you are allowed to discuss answers and solutions
+with coursemates. Note that the goal should always be to learn contents better. Copying code or textual answers
+from your classmates will result in a deduction of points from your grade.
+
+**Can I use AI to help me with the notebooks?**
+
+Yes—but responsibly. AI should be a learning tool, **not** a shortcut to submit
+the best possible report with the minimum effort. Note that using LLMs to improve the writing style of your 
+report is also discouraged; writing effectively is part of the skills that should be learnt in a research Master,
+not some add-on that can be delegated to AI.
+
+**Due to unforeseeable circumstances, I will be unable to submit the assignment(s) within the deadline. What should I do?**
+
+Contact the TA or the course coordinator. If you have good reasons for being unable to submit the assignment,
+they will most likely understand and do their best to find a solution that is suitable for you.
+
+**I have accidentally submitted the wrong PDF/notebook. Will this result in a deduction of points?**
+
+Yes. Unfortunately, it is impossible for TAs to tell honest mistakes from skeaky attempts to get deadline extensions. 
+In addition, ensuring the submitted files are the correct ones is part of what distinguishes a good assignment from 
+a sloppy one. 
+
+**Is computer lab attendance mandatory?**  
+
+Attending computer labs is not mandatory, so no need to worry if you have schedule conflicts. If you don't, however,
+consider attending the computer labs in person, as it will make it easier for you to ask clarification questions to the 
+TA(s) and/or discuss any doubts you may have with coursemates.
