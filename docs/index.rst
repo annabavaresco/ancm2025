@@ -63,14 +63,9 @@ For each of the above criteria, you will receive a score ranging from 0 to 2:
    they require. When averaging the scores for the aforementioned criteria, their 
    prominence in the assignment will also be taken into account. 
 
++++++++++++++++
 FAQs
-====
-
-.. toggle:: ▶ What is the purpose of this project?
-   :open:
-
-   This project helps you manage your data efficiently and securely.
-
++++++++++++++++
 
 .. toggle:: ▶ **What do I have to submit? A notebook, a PDF, or both?**
    :open:
