@@ -67,6 +67,11 @@ For each of the above criteria, you will receive a score ranging from 0 to 2:
 FAQs
 +++++++++++++++
 
+.. toggle:: ▶ What is the purpose of this project?
+   :open:
+
+   This project helps you manage your data efficiently and securely.
+   
 .. toggle:: ▶ **What do I have to submit? A notebook, a PDF, or both?**
    :open:
    You should submit both a notebook and a PDF. The notebook should include the code to reproduce your analyses/results.
