@@ -114,11 +114,11 @@ FAQs
 +++++++++++++++
 
 **What do I have to submit? A notebook, a PDF, or both?**
-.. toggle::
-   You should submit both a notebook and a PDF. The notebook should include the code to reproduce your analyses/results.
-   As for the PDF, please include there any written answer/report that the assignment/question require. In addition, consider including 
-   some figures or tables, if you think it might be convenient to present your
-   results more effectively. Tables and figures will not count toward the page/word limit (if there is any).
+
+You should submit both a notebook and a PDF. The notebook should include the code to reproduce your analyses/results.
+As for the PDF, please include there any written answer/report that the assignment/question require. In addition, consider including 
+some figures or tables, if you think it might be convenient to present your
+results more effectively. Tables and figures will not count toward the page/word limit (if there is any).
 
 **When will I see the grade for my assignment?**
 
