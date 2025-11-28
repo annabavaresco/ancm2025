@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3 - Item Response Theory with mirt &mdash; ANCM 2025 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ANCM 2025
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Week 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../week_1/1_Logistic_regression_for_musical_tags.html">1 - Logistic Regression for Musical Tags</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Week 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../week_2/2A_Language_Model_Refresher.html">2A - Language model refresher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week_2/2B_RSA_with_fMRI_Data.html">2B - Representational Similarity with Story Reading fMRI data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week_2/2C_LM_Surprisal_and_EEG_data.html">2C - Language Model Surprisal and EEG Data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Week 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3_IRT_Stan.html">3 - Item Response Theory with Stan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Week 4:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../week_4/4_Vision%2C_Convolutions_and_Recurrence.html">4 - Vision, convolutions, recurrence</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Inspiration:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project_ideas.html">Project Inspiration</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ANCM 2025</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">3 - Item Response Theory with <code class="docutils literal notranslate"><span class="pre">mirt</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/week_3/Item_Response_Theory_with_R.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="3---Item-Response-Theory-with-mirt">
+<h1>3 - Item Response Theory with <code class="docutils literal notranslate"><span class="pre">mirt</span></code><a class="headerlink" href="#3---Item-Response-Theory-with-mirt" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/annabavaresco/ancm2024/blob/main/docs/week_3/Item_Response_Theory_with_R.ipynb"><img alt="View filled on Github" src="https://img.shields.io/static/v1.svg?logo=github&amp;label=Repo&amp;message=View%20On%20Github&amp;color=lightgrey" /></a> <a class="reference external" href="https://colab.research.google.com/github/annabavaresco/ancm2024/blob/main/docs/week_3/Item_Response_Theory_with_R.ipynb"><img alt="View filled in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><em>This notebook was adapted from materials created by Philipp Masur in 2022</em></p>
+<hr class="docutils" />
+<p>In this computer lab we’ll learn to fit item response theory (IRT) models with the R package <code class="docutils literal notranslate"><span class="pre">mirt</span></code> (multidimensional item response theory, version 1.36.1; Chalmers, 2022, <a class="reference external" href="https://cran.r-project.org/web/packages/mirt/index.html">CRAN page</a>). This notebook doesn’t require prior knowledge of R and should be accessible to anyone familiar with other programming languages. However, if you find yourself struggling with the syntax, feel free to reach out to the TA and ask for help :) Also, Google
+Colab does support R, but make sure you go to Runtime &gt; Change Runtime Type and select R before running the code.</p>
+<p>IRT refers to a set of mathematical models which aim to explain the relationship between a latent ability, trait, or proficiency (denoted <a href="#id2"><span class="problematic" id="id3">|\\theta|</span></a>) and its observable manifestations (e.g., multiple-choice questions, true-false items, items…). IRT focuses on the pattern of responses and considers responses in probabilistic terms, rather than focusing on composite variables and linear regression theory. IRT thereby accounts for:</p>
+<ul class="simple">
+<li><p><em>item discrimination</em>: ability of an item to differentiate between respondents with different levels of proficiency.</p></li>
+<li><p><em>item difficulty</em>: the likelihood of a correct response, expressed as the proficiency level at which 50% of the participant sample is estimated to answer an item correctly.</p></li>
+<li><p>depending on the model, some other parameters, for example, <em>guessing probability</em>…</p></li>
+</ul>
+<p>Assessing item difficulties is useful in matching the test and trait levels of a target population and in ensuring that the entire range of the proficiency is covered. Therefore, there are several advantages to IRT models:</p>
+<ol class="arabic simple">
+<li><p>The stronger focus on item difficulty generally leads to scales that perform better at differentiating at the extremes of proficiency.</p></li>
+<li><p>Item banks that are developed using IRT often provide a good basis for creating smaller scales or parallel tests that still exhibit a high validity and reliability.</p></li>
+<li><p>It allows for computer adaptive testing (CAT). This approach can greatly improve the efficiency of testing. In CAT, the test items are selected to match each individual’s proficiency, so that they will not be bored by easy items or frustrated by overly difficult items.</p></li>
+<li><p>Specific IRT models (e.g., the Rasch model, see further below) has specific mathematical properties that are highly desirable, such as a) the number-correct score is a sufficient estimation of <a href="#id4"><span class="problematic" id="id5">|\\theta|</span></a>, b) specific objectivity, which means that item and person parameters will be similar even if only a subset of the item pool is used or a different population is studied.</p></li>
+</ol>
+<p>This notebook aims to cover the main models used in IRT and discuss their properties. The models we will cover here are: the 3PL model, the 2PL model, and finally the 1PL or Rasch model. These models are named by the number of item parameter used in the function that models the relationship between <a href="#id6"><span class="problematic" id="id7">|\\theta|</span></a> and the item response (0/1). Each model has unique properties but all of them are suited to estimate latent variables from binary items (e.g., knowledge tests), which we will deal with in
+this tutorial.</p>
+<section id="Preparation-and-Data">
+<h2>Preparation and Data<a class="headerlink" href="#Preparation-and-Data" title="Link to this heading"></a></h2>
+<p>Although we are going to focus on the the package <code class="docutils literal notranslate"><span class="pre">mirt</span></code> in this tutorial, there are actually several packages that can be used to estimated IRT models. The most common ones are <code class="docutils literal notranslate"><span class="pre">`ltm</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/ltm/index.html">https://cran.r-project.org/web/packages/ltm/index.html</a>&gt;`__, <code class="docutils literal notranslate"><span class="pre">`eRm</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/eRm/index.html">https://cran.r-project.org/web/packages/eRm/index.html</a>&gt;`__, or <code class="docutils literal notranslate"><span class="pre">`TAM</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/TAM/index.html">https://cran.r-project.org/web/packages/TAM/index.html</a>&gt;`__. This article by Choi &amp; Asilkalkan (2019) also provides an overview of all available packages and their
+specific advantages: <a class="reference external" href="https://doi-org.vu-nl.idm.oclc.org/10.1080/15366367.2019.1586404">https://doi-org.vu-nl.idm.oclc.org/10.1080/15366367.2019.1586404</a>.</p>
+<p>For this tutorial, we are going to load the <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code> (for data wrangling and visualization) and <code class="docutils literal notranslate"><span class="pre">mirt</span></code> (for the main IRT analyses). We’ll also be using the package <code class="docutils literal notranslate"><span class="pre">ggmirt</span></code>, which represents an extension to <code class="docutils literal notranslate"><span class="pre">mirt</span></code> and provides functions to plot more publication-ready figures and helps to assess item, person, and model fit.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data wrangling</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+
+<span class="c1"># Very comprehensive package for IRT analyses</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#39;devtools&#39;</span><span class="p">)</span>
+<span class="nf">install_github</span><span class="p">(</span><span class="s">&#39;philchalmers/mirt&#39;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">mirt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+── <span class="ansi-bold">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">dplyr    </span> 1.1.4     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">readr    </span> 2.1.5
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">forcats  </span> 1.0.0     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">stringr  </span> 1.5.1
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">ggplot2  </span> 3.5.1     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">tibble   </span> 3.2.1
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">lubridate</span> 1.9.3     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">tidyr    </span> 1.3.1
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">purrr    </span> 1.0.2
+── <span class="ansi-bold">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──
+<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">filter()</span> masks <span class="ansi-blue-fg">stats</span>::filter()
+<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">lag()</span>    masks <span class="ansi-blue-fg">stats</span>::lag()
+<span class="ansi-cyan-fg">ℹ</span> Use the conflicted package (<span class="ansi-blue-fg">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
+Loading required package: usethis
+
+Downloading GitHub repo philchalmers/mirt@HEAD
+
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+R.methodsS3  (NA -&gt; 1.8.2   ) [CRAN]
+R.oo         (NA -&gt; 1.26.0  ) [CRAN]
+parallelly   (NA -&gt; 1.38.0  ) [CRAN]
+listenv      (NA -&gt; 0.9.1   ) [CRAN]
+globals      (NA -&gt; 0.16.3  ) [CRAN]
+future       (NA -&gt; 1.34.0  ) [CRAN]
+audio        (NA -&gt; 0.1-11  ) [CRAN]
+R.utils      (NA -&gt; 2.12.3  ) [CRAN]
+progressr    (NA -&gt; 0.14.0  ) [CRAN]
+future.apply (NA -&gt; 1.11.2  ) [CRAN]
+RPushbullet  (NA -&gt; 0.3.4   ) [CRAN]
+pbapply      (NA -&gt; 1.7-2   ) [CRAN]
+beepr        (NA -&gt; 2.0     ) [CRAN]
+snow         (NA -&gt; 0.4-4   ) [CRAN]
+RcppArmad... (NA -&gt; 14.0.0-1) [CRAN]
+permute      (NA -&gt; 0.9-7   ) [CRAN]
+SimDesign    (NA -&gt; 2.17.1  ) [CRAN]
+dcurver      (NA -&gt; 0.9.2   ) [CRAN]
+Deriv        (NA -&gt; 4.1.3   ) [CRAN]
+vegan        (NA -&gt; 2.6-8   ) [CRAN]
+gridExtra    (NA -&gt; 2.3     ) [CRAN]
+GPArotation  (NA -&gt; 2024.3-1) [CRAN]
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Installing 22 packages: R.methodsS3, R.oo, parallelly, listenv, globals, future, audio, R.utils, progressr, future.apply, RPushbullet, pbapply, beepr, snow, RcppArmadillo, permute, SimDesign, dcurver, Deriv, vegan, gridExtra, GPArotation
+
+Installing packages into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">──</span> <span class="ansi-cyan-fg">R CMD build</span> <span class="ansi-cyan-fg">─────────────────────────────────────────────────────────────────</span>
+* checking for file ‘/tmp/RtmpSvGfJT/remotesc75169200a/philchalmers-mirt-7bdb728/DESCRIPTION’ ... OK
+* preparing ‘mirt’:
+* checking DESCRIPTION meta-information ... OK
+* cleaning src
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Removed empty directory ‘mirt/dev’
+Removed empty directory ‘mirt/tests/tests/testdata’
+* building ‘mirt_1.42.1.tar.gz’
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+
+Loading required package: stats4
+
+Loading required package: lattice
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extension for &#39;mirt&#39;</span>
+<span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;masurp/ggmirt&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggmirt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Downloading GitHub repo masurp/ggmirt@HEAD
+
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+<span class="ansi-cyan-fg">──</span> <span class="ansi-cyan-fg">R CMD build</span> <span class="ansi-cyan-fg">─────────────────────────────────────────────────────────────────</span>
+* checking for file ‘/tmp/RtmpSvGfJT/remotesc75fc2ef15/masurp-ggmirt-4cfa106/DESCRIPTION’ ... OK
+* preparing ‘ggmirt’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Omitted ‘LazyData’ from DESCRIPTION
+* building ‘ggmirt_0.1.0.tar.gz’
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ggmirt</span></code> package includes a convenient function to simulate data for IRT analyses. Let’s quickly create a data set with 500 observations and 10 items that should fit a 3PL, 2PL and perhaps even a 1PL model.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># setting seed for reproducibility</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">42</span><span class="p">)</span>
+<span class="n">d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sim_irt</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">discrimination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.</span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">42</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Warning message:
+“The `x` argument of `as_tibble.matrix()` must have unique column names if
+`.name_repair` is omitted as of tibble 2.0.0.
+<span class="ansi-cyan-fg">ℹ</span> Using compatibility `.name_repair`.
+<span class="ansi-cyan-fg">ℹ</span> The deprecated feature was likely used in the <span class="ansi-blue-fg">ggmirt</span> package.
+  Please report the issue to the authors.”
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A tibble: 6 × 10</caption>
+<thead>
+    <tr><th scope=col>V1</th><th scope=col>V2</th><th scope=col>V3</th><th scope=col>V4</th><th scope=col>V5</th><th scope=col>V6</th><th scope=col>V7</th><th scope=col>V8</th><th scope=col>V9</th><th scope=col>V10</th></tr>
+    <tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>As you can see, each “participant” has answered binary 10 items. Imagine we had administered a test (e.g., LSAT, PISA, knowledge test, exam,…) to 500 people. The score 1 means a person has answered a particular question/item <em>correctly</em>. The score 0 means the item was answered incorrectly.</p>
+</section>
+<section id="3PL-model">
+<h2>3PL model<a class="headerlink" href="#3PL-model" title="Link to this heading"></a></h2>
+<p>The 3PL model takes item discrimination (first parameter: <em>a</em>), item difficulty (second parameter: <em>b</em>), and guessing probability (third parameter: <em>c</em>) into account. As such, the 2PL and 1PL model (discussed below) are special cases, or constrained versions of the 3PL model. Take a look at Fig. 1 below. It shows a typical item characteristic curve (ICC, but not to be mistaken for the intra-class correlation). The x-axis shows the latent ability (<a href="#id8"><span class="problematic" id="id9">|\\theta|</span></a>) ranging from -4 to 4, with 0 being the
+average ability in the studied population. The y-axis shows the probability of solving the item. The curve thus represents the probability of answering this item given a certain level on the latent ability.</p>
+<p><img alt="image1" src="https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_test-theory_3_irt_files/figure-gfm/unnamed-chunk-3-1.png?raw=true" /></p>
+<p>In this example, this 3PL model provides a smooth curve for this item because it is based on item discrimination (steepness of the slope), difficulty (point of inflexion at which the probability of answering the item correctly is 50%) and the guessing probability (slightly raised lower asymptote). The mathematical form of the 3PL model is:</p>
+<p><a href="#id10"><span class="problematic" id="id11">|P(\\theta_j) = c_i + (1-c_i)\\frac{e\ {1.7a_i(\\theta_j-b_i)}}{1+e\ {1.71a_i(\\theta_j-b_i)}}|</span></a></p>
+<p>Here, the probability of a correct response <a href="#id12"><span class="problematic" id="id13">|P(\\theta)|</span></a> given a person’s ability <a href="#id14"><span class="problematic" id="id15">|\\theta|</span></a> is expressed as a function of all three item parameters and a person’s ability, where <img alt="i" src="https://latex.codecogs.com/png.latex?i" /> indicates the item and <img alt="j" src="https://latex.codecogs.com/png.latex?j" /> indicates an individual person. In the figure, the steeper the slope, the better the item is at differentiating people clearly in close proximity to its difficulty. The lower the asymptote, the lower the likelihood of selecting the right response by chance. As for the item difficulty (point
+of inflexion is slightly above the average: 0.71), the item can be solved by a majority of potential participants.</p>
+<p>So, how do we fit such a model?</p>
+<p>To fit any IRT model, we simply use the function <code class="docutils literal notranslate"><span class="pre">mirt()</span></code>. In a first step, we specify the model itself. In this case, we simply want to estimate a uni-dimensional model, so we use the following string command <code class="docutils literal notranslate"><span class="pre">&quot;Factor</span> <span class="pre">=</span> <span class="pre">item_1</span> <span class="pre">-</span> <span class="pre">item_n&quot;</span></code>. The syntax for specifying models is comparatively simple, but for more complex (e.g., multidimensional models), see the some examples using <code class="docutils literal notranslate"><span class="pre">?mirt</span></code>. It makes sense to save this string in a separate object.</p>
+<p>Next, we provide the function itself with</p>
+<ol class="arabic simple">
+<li><p>the data set, which only contains the relevant variables (i.e., potential id variables have to be excluded)</p></li>
+<li><p>the previously specifed model (string)</p></li>
+<li><p>the type of model we want to estiamte (in this case “3PL”)</p></li>
+</ol>
+<p>I am adding <code class="docutils literal notranslate"><span class="pre">verbose</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> to not print information about the iterations. But you can remove this as well.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">unimodel</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&#39;F1 = 1-10&#39;</span>
+
+<span class="n">fit3PL</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mirt</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">               </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unimodel</span><span class="p">,</span><span class="w">  </span><span class="c1"># alternatively, we could also just specify model = 1 in this case</span>
+<span class="w">               </span><span class="n">itemtype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;3PL&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">fit3PL</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Call:
+mirt(data = d, model = unimodel, itemtype = &#34;3PL&#34;, verbose = FALSE)
+
+Full-information item factor analysis with 1 factor(s).
+Converged within 1e-04 tolerance after 24 EM iterations.
+mirt version: 1.42.1
+M-step optimizer: BFGS
+EM acceleration: Ramsay
+Number of rectangular quadrature: 61
+Latent density type: Gaussian
+
+Log-likelihood = -2738.689
+Estimated parameters: 30
+AIC = 5537.377
+BIC = 5663.816; SABIC = 5568.594
+G2 (993) = 497.87, p = 1
+RMSEA = 0, CFI = NaN, TLI = NaN
+</pre></div></div>
+</div>
+<p>The created object is of class “SingleGroupClass” and contains all necessary information and data to assess the model. By running the object itself, we get some information about the type of estimation as well as some model fit indices (including AIC and BIC), which can be used to compare models with one another.</p>
+<p>If we use the <code class="docutils literal notranslate"><span class="pre">summary()</span></code> function, we get the so-called factor solution including factor loadings (F1) and the communalities (h2), which are squared factor loadings and are interpreted as the variance accounted for in an item by the latent trait. Almost all of the items in this case have a substantive relationship (loadings &gt; .50) with the latent trait.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Factor solution</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+       F1    h2
+V1  0.707 0.500
+V2  0.513 0.264
+V3  0.535 0.286
+V4  0.727 0.529
+V5  0.574 0.329
+V6  0.566 0.320
+V7  0.603 0.364
+V8  0.443 0.196
+V9  0.718 0.516
+V10 0.480 0.230
+
+SS loadings:  3.534
+Proportion Var:  0.353
+
+Factor correlations:
+
+   F1
+F1  1
+</pre></div></div>
+</div>
+<p>In IRT, however, we are usually more interested in the actual IRT parameters as discussed above (discrimination, difficulty and guessing probability). They can be extracted as follows:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">params3PL</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">coef</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">,</span><span class="w"> </span><span class="n">IRTpars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">simplify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">round</span><span class="p">(</span><span class="n">params3PL</span><span class="o">$</span><span class="n">items</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="c1"># g = c = guessing parameter</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A matrix: 10 × 4 of type dbl</caption>
+<thead>
+    <tr><th></th><th scope=col>a</th><th scope=col>b</th><th scope=col>g</th><th scope=col>u</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>V1</th><td>1.70</td><td> 1.17</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V2</th><td>1.02</td><td>-0.58</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V3</th><td>1.08</td><td> 0.35</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V4</th><td>1.80</td><td> 0.81</td><td>0.09</td><td>1</td></tr>
+    <tr><th scope=row>V5</th><td>1.19</td><td> 0.52</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V6</th><td>1.17</td><td>-0.14</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V7</th><td>1.29</td><td> 1.87</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V8</th><td>0.84</td><td> 0.03</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V9</th><td>1.76</td><td> 2.11</td><td>0.00</td><td>1</td></tr>
+    <tr><th scope=row>V10</th><td>0.93</td><td>-0.05</td><td>0.01</td><td>1</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>The values of the slope (a) parameters range from 0.84 to 1.80. This parameter is a measure of how well an item differentiates individuals with different theta levels. Larger values – or steeper slopes – indicate questions that better differentiate people. A slope also can be interpreted as an indicator of the strength of the relationship between and item and latent trait, with higher slope values corresponding to stronger relationships.</p>
+<p>The location or difficulty parameters (b) is also listed for each item. Location parameters can be interpreted as the value of theta that corresponds to a .50 probability of responding correctly at or above that location on an item. The location parameters show that the items cover a wide range of the latent trait.</p>
+<p>Similar to factor analytical approaches, we can assess how well the model fits the data. Rather than using a a <a href="#id16"><span class="problematic" id="id17">|\\chi^2|</span></a> statisic, we use a specific index, <em>M2</em>, which is specifically designed to assess the fit of item response models.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">M2</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A data.frame: 1 × 9</caption>
+<thead>
+    <tr><th></th><th scope=col>M2</th><th scope=col>df</th><th scope=col>p</th><th scope=col>RMSEA</th><th scope=col>RMSEA_5</th><th scope=col>RMSEA_95</th><th scope=col>SRMSR</th><th scope=col>TLI</th><th scope=col>CFI</th></tr>
+    <tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>stats</th><td>17.77133</td><td>25</td><td>0.8519424</td><td>0</td><td>0</td><td>0.02036034</td><td>0.03371296</td><td>1.018438</td><td>1</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>As we can see, the M2 statistic is comparatively low and non-significant. So there are no concerning differences between the model and the data. This is further supported by a very low RMSEA and a CFA and TLI of 1.</p>
+<p>In IRT, however, we are usually more interested in <em>item</em>- and <em>person</em>-fit indices. IRT allows us to assess how well each item fits the model and whether the indiviual response patterns align with the model.</p>
+<section id="Item-fit">
+<h3>Item fit<a class="headerlink" href="#Item-fit" title="Link to this heading"></a></h3>
+<p>Let’s start with item fit. An item fit index assesses whether the observed response patterns for an item align with the predicted patterns based on the IRT model being used. Similar to many other areas, different indices have been proposed to assess item fit. We can use the function <code class="docutils literal notranslate"><span class="pre">itemfit()</span></code> to get a variety of them. By default, we receive the <code class="docutils literal notranslate"><span class="pre">S_X2</span></code> by Orlando and Thissen (2000) and the corresponding dfs, RMSEA and p-values. This test should be non-significant to indicate good item fit.
+As we can see here, only item V9 shows a lower fit with the model. Proponents of the “Rasch Model” (see further below) often rather report infit and outfit statistics. We can get those by adding the argument <code class="docutils literal notranslate"><span class="pre">fit_stats</span> <span class="pre">=</span> <span class="pre">&quot;infit&quot;</span></code>). We get both mean-squared and standardized versions of these measures (Linacre provides some guidelines to interpret these: <a class="reference external" href="https://www.rasch.org/rmt/rmt162f.htm">https://www.rasch.org/rmt/rmt162f.htm</a>). Roughly speaking, the non-standardized values should be between .5 and 1.5 to not be degrading. In the
+package <code class="docutils literal notranslate"><span class="pre">ggmirt</span></code>, we can also use the function <code class="docutils literal notranslate"><span class="pre">itemfitPlot()\</span></code> to inspect this visually.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">itemfit</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A mirt_df: 10 × 5</caption>
+<thead>
+    <tr><th scope=col>item</th><th scope=col>S_X2</th><th scope=col>df.S_X2</th><th scope=col>RMSEA.S_X2</th><th scope=col>p.S_X2</th></tr>
+    <tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>V1 </td><td> 4.708662</td><td>4</td><td>0.01884253</td><td>0.31851727</td></tr>
+    <tr><td>V2 </td><td> 2.503355</td><td>5</td><td>0.00000000</td><td>0.77598970</td></tr>
+    <tr><td>V3 </td><td> 6.761645</td><td>5</td><td>0.02657198</td><td>0.23897913</td></tr>
+    <tr><td>V4 </td><td> 3.700650</td><td>5</td><td>0.00000000</td><td>0.59326723</td></tr>
+    <tr><td>V5 </td><td> 4.093206</td><td>5</td><td>0.00000000</td><td>0.53607618</td></tr>
+    <tr><td>V6 </td><td> 2.824089</td><td>5</td><td>0.00000000</td><td>0.72708384</td></tr>
+    <tr><td>V7 </td><td> 8.648072</td><td>5</td><td>0.03823811</td><td>0.12395190</td></tr>
+    <tr><td>V8 </td><td> 2.901227</td><td>5</td><td>0.00000000</td><td>0.71521044</td></tr>
+    <tr><td>V9 </td><td>11.610311</td><td>4</td><td>0.06174772</td><td>0.02049704</td></tr>
+    <tr><td>V10</td><td> 2.693987</td><td>5</td><td>0.00000000</td><td>0.74703794</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">itemfit</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">,</span><span class="w"> </span><span class="n">fit_stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;infit&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A mirt_df: 10 × 5</caption>
+<thead>
+    <tr><th scope=col>item</th><th scope=col>outfit</th><th scope=col>z.outfit</th><th scope=col>infit</th><th scope=col>z.infit</th></tr>
+    <tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>V1 </td><td>0.6386014</td><td>-2.365002</td><td>0.8743268</td><td>-1.73625801</td></tr>
+    <tr><td>V2 </td><td>0.8481622</td><td>-3.058789</td><td>0.8705611</td><td>-3.71255176</td></tr>
+    <tr><td>V3 </td><td>0.8320215</td><td>-3.792355</td><td>0.8794736</td><td>-3.44441095</td></tr>
+    <tr><td>V4 </td><td>0.8362322</td><td>-2.532775</td><td>0.8729352</td><td>-2.56642093</td></tr>
+    <tr><td>V5 </td><td>0.8035407</td><td>-3.634037</td><td>0.8727943</td><td>-3.18629930</td></tr>
+    <tr><td>V6 </td><td>0.8104688</td><td>-4.158982</td><td>0.8432826</td><td>-4.60428263</td></tr>
+    <tr><td>V7 </td><td>0.7308953</td><td>-1.594022</td><td>0.9935245</td><td>-0.03315369</td></tr>
+    <tr><td>V8 </td><td>0.8929857</td><td>-3.419761</td><td>0.9110881</td><td>-3.29592285</td></tr>
+    <tr><td>V9 </td><td>0.5264292</td><td>-1.359472</td><td>1.0527710</td><td> 0.38344865</td></tr>
+    <tr><td>V10</td><td>0.8713525</td><td>-3.689040</td><td>0.8945440</td><td>-3.64386400</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>We again see that item V9 has a lower fit (outfit value close to .5), but according to Linacre’s guidelines, this should not be concerning.</p>
+<p>To better understand the properties of each item, we can visualise item characteristic curves or trace plots.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">tracePlot</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_23_0.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_23_0.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">tracePlot</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">,</span><span class="w"> </span><span class="n">facet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">scale_color_brewer</span><span class="p">(</span><span class="n">palette</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Set3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Scale for <span class="ansi-green-fg">colour</span> is already present.
+Adding another scale for <span class="ansi-green-fg">colour</span>, which will replace the existing scale.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_24_1.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_24_1.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+<p>Another way of looking at the quality of each item is by plotting the so-called <em>item information curves</em>. Information is a statistical concept that refers to the ability of an item to accurately estimate scores on theta. Item level information clarifies how well each item contributes to score estimation precision with higher levels of information leading to more accurate score estimates.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">itemInfoPlot</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">scale_color_brewer</span><span class="p">(</span><span class="n">palette</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Set3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Warning message:
+“The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use &#34;none&#34; instead as
+of ggplot2 3.3.4.
+<span class="ansi-cyan-fg">ℹ</span> The deprecated feature was likely used in the <span class="ansi-blue-fg">ggmirt</span> package.
+  Please report the issue to the authors.”
+Scale for <span class="ansi-green-fg">colour</span> is already present.
+Adding another scale for <span class="ansi-green-fg">colour</span>, which will replace the existing scale.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_26_1.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_26_1.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">itemInfoPlot</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">,</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">facet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span><span class="w"> </span><span class="c1"># only few items individually</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_27_0.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_27_0.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+<p>Here we, see clearly that some items offer most information on higher theta levels whereas others cover the entire range of theta.</p>
+</section>
+<section id="Person-fit">
+<h3>Person fit<a class="headerlink" href="#Person-fit" title="Link to this heading"></a></h3>
+<p>Let’s now move to person fit. We’ll be looking at measures that will allow us to assess how well each person’s response patterns aligns with the model. Think about it this way: If a person with a high theta (that is high latent ability) doesn’t answer an easy item correctly, this person’s behaviour doesn’t fit well with the model. Likewise, if a person with a low ability answers a very difficult question correctly, this also doesn’t fit the model. In practice, there will most likely be a few
+people who do not fit the model well. However, as long as the number of non-fitting respondents is low, we are good. We’ll look again at infit and outfit statistics. If less than 5% of the respondents have higher or lower infit and outfit values than 1.96 and -1.96, we are good.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">personfit</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+    <tr><th></th><th scope=col>outfit</th><th scope=col>z.outfit</th><th scope=col>infit</th><th scope=col>z.infit</th><th scope=col>Zh</th></tr>
+    <tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>1</th><td>1.0161479</td><td> 0.17495415</td><td>1.0183924</td><td> 0.15840392</td><td>-0.07323077</td></tr>
+    <tr><th scope=row>2</th><td>0.6331922</td><td>-0.13275101</td><td>0.8411215</td><td>-0.49761279</td><td> 0.56159341</td></tr>
+    <tr><th scope=row>3</th><td>0.7456650</td><td>-0.19057356</td><td>0.8912849</td><td>-0.36118534</td><td> 0.43906570</td></tr>
+    <tr><th scope=row>4</th><td>0.7209540</td><td>-0.03928867</td><td>0.9571507</td><td>-0.06374702</td><td> 0.26012606</td></tr>
+    <tr><th scope=row>5</th><td>2.1363674</td><td> 2.36953932</td><td>1.7713727</td><td> 2.18326557</td><td>-2.69486327</td></tr>
+    <tr><th scope=row>6</th><td>0.7538809</td><td> 0.06104147</td><td>1.0221023</td><td> 0.17247403</td><td> 0.08435612</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>Let’s convert this result into a table with the exact proportions of people within the acceptable infit and outfit ranges.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">personfit</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">reframe</span><span class="p">(</span><span class="n">infit.outside</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prop.table</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">z.infit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1.96</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">z.infit</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">-1.96</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">outfit.outside</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prop.table</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">z.outfit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1.96</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">z.outfit</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">-1.96</span><span class="p">)))</span><span class="w"> </span><span class="c1"># lower row = non-fitting people</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A data.frame: 2 × 2</caption>
+<thead>
+    <tr><th scope=col>infit.outside</th><th scope=col>outfit.outside</th></tr>
+    <tr><th scope=col>&lt;table[1d]&gt;</th><th scope=col>&lt;table[1d]&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>0.958</td><td>0.98</td></tr>
+    <tr><td>0.042</td><td>0.02</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>We can also visualise this with a plot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">personfitPlot</span><span class="p">(</span><span class="n">fit3PL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_34_1.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_34_1.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+</section>
+</section>
+<section id="2PL-model">
+<h2>2PL model<a class="headerlink" href="#2PL-model" title="Link to this heading"></a></h2>
+<p>The 2PL model only differs from the 3PL model in one regard: All items are assumed to have no guessing probability. So the model only takes item discrimination (a) and item difficulty into account. The mathematical form is hence (we simply delete the part before the fraction):</p>
+<p><a href="#id18"><span class="problematic" id="id19">|P(\\theta_j) = \\frac{e\ {1.7a_i(\\theta_j-b_i)}}{1+e\ {1.71a_i(\\theta_j-b_i)}}|</span></a></p>
+<p>The general procedure to estimate and assess the model remains the same. Therefore, here we’ll only look at the differences and will not repeat all steps outlined for the 3PL model.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">fit2PL</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mirt</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">itemtype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2PL&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration: 15, Log-Lik: -2739.232, Max-Change: 0.00010
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">fit2PL</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Call:
+mirt(data = d, model = 1, itemtype = &#34;2PL&#34;)
+
+Full-information item factor analysis with 1 factor(s).
+Converged within 1e-04 tolerance after 15 EM iterations.
+mirt version: 1.42.1
+M-step optimizer: BFGS
+EM acceleration: Ramsay
+Number of rectangular quadrature: 61
+Latent density type: Gaussian
+
+Log-likelihood = -2739.232
+Estimated parameters: 20
+AIC = 5518.465
+BIC = 5602.757; SABIC = 5539.276
+G2 (1003) = 498.96, p = 1
+RMSEA = 0, CFI = NaN, TLI = NaN
+</pre></div></div>
+</div>
+<p>We can always compare different models that are based on the same data. Using the function <code class="docutils literal notranslate"><span class="pre">anova()</span></code>, we can check whether the models differ based on various fit indices and a <a href="#id20"><span class="problematic" id="id21">|\\chi^2|</span></a> test. In this case, the 2PL actually fits the data sightly better, but the difference is not significant.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">fit2PL</span><span class="p">,</span><span class="w"> </span><span class="n">fit3PL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A mirt_df: 2 × 8</caption>
+<thead>
+    <tr><th></th><th scope=col>AIC</th><th scope=col>SABIC</th><th scope=col>HQ</th><th scope=col>BIC</th><th scope=col>logLik</th><th scope=col>X2</th><th scope=col>df</th><th scope=col>p</th></tr>
+    <tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>fit2PL</th><td>5518.465</td><td>5539.276</td><td>5551.541</td><td>5602.757</td><td>-2739.232</td><td>      NA</td><td>NA</td><td>       NA</td></tr>
+    <tr><th scope=row>fit3PL</th><td>5537.377</td><td>5568.594</td><td>5586.991</td><td>5663.816</td><td>-2738.689</td><td>1.087351</td><td>10</td><td>0.9997476</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>If we inspect the IRT parameters, the third parameter (c, here denoted as g) is fixed to 0.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">coef</span><span class="p">(</span><span class="n">fit2PL</span><span class="p">,</span><span class="w"> </span><span class="n">IRTpars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">simplify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<dl>
+    <dt>$items</dt>
+            <dd><table class="dataframe">
+<caption>A matrix: 10 × 4 of type dbl</caption>
+<thead>
+    <tr><th></th><th scope=col>a</th><th scope=col>b</th><th scope=col>g</th><th scope=col>u</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>V1</th><td>1.6986898</td><td> 1.16832911</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V2</th><td>1.0183588</td><td>-0.58182958</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V3</th><td>1.0838719</td><td> 0.34320588</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V4</th><td>1.2750666</td><td> 0.65685180</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V5</th><td>1.1771705</td><td> 0.51378758</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V6</th><td>1.1764403</td><td>-0.14552746</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V7</th><td>1.2857797</td><td> 1.86782011</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V8</th><td>0.8383685</td><td> 0.02352994</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V9</th><td>1.6842019</td><td> 2.16221732</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V10</th><td>0.9186082</td><td>-0.07029652</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+</dd>
+    <dt>$means</dt>
+            <dd><strong>F1:</strong> 0</dd>
+    <dt>$cov</dt>
+            <dd><table class="dataframe">
+<caption>A matrix: 1 × 1 of type dbl</caption>
+<thead>
+    <tr><th></th><th scope=col>F1</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>F1</th><td>1</td></tr>
+</tbody>
+</table>
+</dd>
+</dl></div>
+</div>
+<p>The difference between the 3PL and the 2PL model is particularly visible in the trace plot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">tracePlot</span><span class="p">(</span><span class="n">fit2PL</span><span class="p">,</span><span class="w"> </span><span class="n">theta_range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="n">facet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">scale_color_brewer</span><span class="p">(</span><span class="n">palette</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Set3&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2PL - Traceplot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Scale for <span class="ansi-green-fg">colour</span> is already present.
+Adding another scale for <span class="ansi-green-fg">colour</span>, which will replace the existing scale.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_43_1.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_43_1.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+<p>The curves have different slopes, but they do not have different asymptotes (yintercepts = guessing probability).</p>
+</section>
+<section id="1PL-or-Rasch-model">
+<h2>1PL or Rasch model<a class="headerlink" href="#1PL-or-Rasch-model" title="Link to this heading"></a></h2>
+<p>The 1PL model gets rid of yet another parameter: item discrimination. It basically constrains item discrimination to be equal across all items. Only item difficulty is allowed to vary. The mathematical form hence becomes:</p>
+<p><a href="#id22"><span class="problematic" id="id23">|P(\\theta_j) = \\frac{e\ {1.7a(\\theta_j-b_i)}}{1+e\ {1.71a(\\theta_j-b_i)}}|</span></a></p>
+<p>Note that there is no subscript for the letter <img alt="a" src="https://latex.codecogs.com/png.latex?a" />, because it is constrained to be the same for all items. The Rasch model (stemming from a different scholarly tradition) is mathematically equivalent, but is often expressed slightly differently:</p>
+<p><a href="#id24"><span class="problematic" id="id25">|P(\\beta) = \\frac{e^{(\\beta-\\delta_i)}}{1+ e^{(\\beta-\\delta_i)}}|</span></a></p>
+<p>It is basically the same as the equation above, but the 1.7 constant is omitted. Further, the typical notational system uses <a href="#id26"><span class="problematic" id="id27">|\\delta|</span></a> instead of <img alt="b" src="https://latex.codecogs.com/png.latex?b" /> and <a href="#id28"><span class="problematic" id="id29">|\\beta|</span></a> instead of <a href="#id30"><span class="problematic" id="id31">|\\theta|</span></a>.</p>
+<p>This constrained model is rather an “ideal” measurement model than a model that can be perfectly fitted to the data. Yet, if we find items that fit this model sufficiently, it actually has some mathematical properties that cannot be obtained with less constrained models (e.g., 2PL or 3PL models). Many scholars favor this measurement model (particularly those following the Rasch School of Measurement) for the following reasons:</p>
+<ol class="arabic simple">
+<li><p>For this model, the number-correct score is particularly a sufficient estimation of theta.</p></li>
+<li><p>Due to the fixed discrimination parameter, item characteristic curves cannot cross. Items thus do not differ in how well they differentiate respondents.</p></li>
+<li><p>Such a model has a so-called specific objectivity: Because the Rasch model is based on the idea that items are designed to fit certain properties, instead of finding a model that fits the data, item as well as person parameter estimates are invariant across samples. Person (i.e., proficiency scores) and item parameters (i.e., item difficulty) thus will be similar even if only a subset of the item pool is used or a different population is studied. This makes it very easy to create smaller
+tests, parallel test or even adaptive testing pools.</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">fitRasch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mirt</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">itemtype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rasch&quot;</span><span class="p">)</span>
+<span class="n">fitRasch</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration: 20, Log-Lik: -2746.893, Max-Change: 0.00010
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Call:
+mirt(data = d, model = 1, itemtype = &#34;Rasch&#34;)
+
+Full-information item factor analysis with 1 factor(s).
+Converged within 1e-04 tolerance after 20 EM iterations.
+mirt version: 1.42.1
+M-step optimizer: nlminb
+EM acceleration: Ramsay
+Number of rectangular quadrature: 61
+Latent density type: Gaussian
+
+Log-likelihood = -2746.893
+Estimated parameters: 11
+AIC = 5515.786
+BIC = 5562.147; SABIC = 5527.232
+G2 (1012) = 514.28, p = 1
+RMSEA = 0, CFI = NaN, TLI = NaN
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">fitRasch</span><span class="p">,</span><span class="w"> </span><span class="n">fit2PL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="dataframe">
+<caption>A mirt_df: 2 × 8</caption>
+<thead>
+    <tr><th></th><th scope=col>AIC</th><th scope=col>SABIC</th><th scope=col>HQ</th><th scope=col>BIC</th><th scope=col>logLik</th><th scope=col>X2</th><th scope=col>df</th><th scope=col>p</th></tr>
+    <tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>fitRasch</th><td>5515.786</td><td>5527.232</td><td>5533.978</td><td>5562.147</td><td>-2746.893</td><td>      NA</td><td>NA</td><td>        NA</td></tr>
+    <tr><th scope=row>fit2PL</th><td>5518.465</td><td>5539.276</td><td>5551.541</td><td>5602.757</td><td>-2739.232</td><td>15.32166</td><td> 9</td><td>0.08247096</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>If we inspect the IRT parameters, the first (a, item discrimination) is constrained to be equal and the third parameter (c, here denoted as g) is fixed to 0.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">coef</span><span class="p">(</span><span class="n">fitRasch</span><span class="p">,</span><span class="w"> </span><span class="n">IRTpars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">simplify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<dl>
+    <dt>$items</dt>
+            <dd><table class="dataframe">
+<caption>A matrix: 10 × 4 of type dbl</caption>
+<thead>
+    <tr><th></th><th scope=col>a</th><th scope=col>b</th><th scope=col>g</th><th scope=col>u</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>V1</th><td>1</td><td> 1.67252968</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V2</th><td>1</td><td>-0.61797412</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V3</th><td>1</td><td> 0.37384243</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V4</th><td>1</td><td> 0.79818694</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V5</th><td>1</td><td> 0.59298338</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V6</th><td>1</td><td>-0.17388752</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V7</th><td>1</td><td> 2.30438427</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V8</th><td>1</td><td> 0.01809406</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V9</th><td>1</td><td> 3.13762348</td><td>0</td><td>1</td></tr>
+    <tr><th scope=row>V10</th><td>1</td><td>-0.07275632</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+</dd>
+    <dt>$means</dt>
+            <dd><strong>F1:</strong> 0</dd>
+    <dt>$cov</dt>
+            <dd><table class="dataframe">
+<caption>A matrix: 1 × 1 of type dbl</caption>
+<thead>
+    <tr><th></th><th scope=col>F1</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>F1</th><td>1.302413</td></tr>
+</tbody>
+</table>
+</dd>
+</dl></div>
+</div>
+<p>Again, the difference between the 3PL, 2PL and the 1PL (Rasch) model is particularly visible in the trace plot:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">tracePlot</span><span class="p">(</span><span class="n">fitRasch</span><span class="p">,</span><span class="w"> </span><span class="n">theta_range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="n">facet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">scale_color_brewer</span><span class="p">(</span><span class="n">palette</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Set3&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1PL - Traceplot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Scale for <span class="ansi-green-fg">colour</span> is already present.
+Adding another scale for <span class="ansi-green-fg">colour</span>, which will replace the existing scale.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_51_1.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_51_1.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+<p>All items have the exact same slope.</p>
+<section id="Extra">
+<h3>Extra<a class="headerlink" href="#Extra" title="Link to this heading"></a></h3>
+<p>We can create smaller, but parallel tests by distributing similar items into to subset pools. Here, we are simply inspecting the item person map and trying to form two sets that equally cover the range of the latent ability.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">subset1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">V2</span><span class="p">,</span><span class="w"> </span><span class="n">V10</span><span class="p">,</span><span class="w"> </span><span class="n">V3</span><span class="p">,</span><span class="w"> </span><span class="n">V4</span><span class="p">,</span><span class="w"> </span><span class="n">V7</span><span class="p">)</span>
+<span class="n">subset2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">V6</span><span class="p">,</span><span class="w"> </span><span class="n">V8</span><span class="p">,</span><span class="w"> </span><span class="n">V5</span><span class="p">,</span><span class="w"> </span><span class="n">V1</span><span class="p">,</span><span class="w"> </span><span class="n">V9</span><span class="p">)</span>
+
+<span class="n">test1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mirt</span><span class="p">(</span><span class="n">subset1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">itemtype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rasch&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration: 35, Log-Lik: -1481.623, Max-Change: 0.00010
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">test2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mirt</span><span class="p">(</span><span class="n">subset2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">itemtype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rasch&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Iteration: 42, Log-Lik: -1343.928, Max-Change: 0.00009
+</pre></div></div>
+</div>
+<p>We can assess their similarity be plotting two test information curves on top of each other:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">testInfoCompare</span><span class="p">(</span><span class="n">test1</span><span class="p">,</span><span class="w"> </span><span class="n">test2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_3_Item_Response_Theory_with_R_57_0.png" class="no-scaled-link" src="../_images/week_3_Item_Response_Theory_with_R_57_0.png" style="width: 420px; height: 420px;" />
+</div>
+</div>
+<p>As we can see, both test sufficiently overlap in their information curve. So they are very likely to correlate highly with the original test</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">cor.test</span><span class="p">(</span><span class="nf">fscores</span><span class="p">(</span><span class="n">test1</span><span class="p">),</span><span class="w"> </span><span class="nf">fscores</span><span class="p">(</span><span class="n">fitRasch</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+        Pearson&#39;s product-moment correlation
+
+data:  fscores(test1) and fscores(fitRasch)
+t = 41.294, df = 498, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.8582740 0.8981538
+sample estimates:
+      cor
+0.8797522
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">cor.test</span><span class="p">(</span><span class="nf">fscores</span><span class="p">(</span><span class="n">test2</span><span class="p">),</span><span class="w"> </span><span class="nf">fscores</span><span class="p">(</span><span class="n">fitRasch</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+        Pearson&#39;s product-moment correlation
+
+data:  fscores(test2) and fscores(fitRasch)
+t = 38.389, df = 498, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.8405774 0.8851290
+sample estimates:
+     cor
+0.864542
+
+</pre></div></div>
+</div>
+</section>
+<section id="ASSIGNMENT">
+<h3><strong>ASSIGNMENT</strong><a class="headerlink" href="#ASSIGNMENT" title="Link to this heading"></a></h3>
+<p>So far we’ve been looking at synthetic data, which was useful for illustrating the models but a bit boring in terms of drawing meaningful conclusions. Let’s now consider some ‘real’ data from a questionnaire on abortion, which was part of the <a class="reference external" href="https://www.icpsr.umich.edu/web/ICPSR/studies/8910">British Social Attitudes Survey</a>, conducted in 1986*. We have answers for 379 individuals (there were originally 410 participating in the survey, but some of them didn’t complete all the questions)
+who were asked if the law should allow abortion under the circumstances presented for each item:</p>
+<ul class="simple">
+<li><p><em>Item 1</em>: The woman decides on her own that she does not.</p></li>
+<li><p><em>Item 2</em>: The couple agree that they do not wish to have a child.</p></li>
+<li><p><em>Item 3</em>: The woman is not married and does not wish to marry the man.</p></li>
+<li><p><em>Item 4</em>: The couple cannot afford any more children.</p></li>
+</ul>
+<p>The code chunk below shows you how to import the dataset. Your task is to analyse this dataset from an IRT perspective, using the models, metrics, and visualisations that were introduced in this lab. Your analyses should focus on the following points:</p>
+<ol class="arabic simple">
+<li><p>How do items compare in their ability to differentiate between individuals? Are there items that are more ‘difficult’ than others? Are all items equally discriminative or are there significant differences between them?</p></li>
+<li><p>How do items compare in terms of guessing probability? Do you think guessing probability is a concern as to how this questionnaire was structured?</p></li>
+<li><p>Which model (Rasch, 2PL, or 3PL) do you think is more suitable for describing this data, and why?</p></li>
+<li><p>Does respondents’ behaviour generally align with your preferred model?</p></li>
+</ol>
+<p>Your deliverable for this computer lab will be a short report (shorter than 1 page, plots/tables excluded) summarizing your analyses and results. Feel free to include plots, tables, and/or figures whenever they are useful to support your point(s).</p>
+<hr class="docutils" />
+<p>*The items included in the questionnaire refer to views about abortion, couples, and families which may have been present and socially accepted in the 80s but do not reflect <strong>in any way</strong> the views of the staff involved in designing the materials for this course.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;ltm&#39;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ltm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Loading required package: MASS
+
+
+Attaching package: ‘MASS’
+
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+
+Loading required package: msm
+
+Loading required package: polycor
+
+
+Attaching package: ‘ltm’
+
+
+The following object is masked from ‘package:mirt’:
+
+    Science
+
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">abortion_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ltm</span><span class="o">::</span><span class="n">Abortion</span>
+
+<span class="c1"># this is to print some information about the dataset</span>
+<span class="nf">descript</span><span class="p">(</span><span class="n">abortion_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Descriptive statistics for the &#39;abortion_data&#39; data-set
+
+Sample:
+ 4 items and 379 sample units; 0 missing values
+
+Proportions for each level of response:
+            0      1   logit
+Item 1 0.5620 0.4380 -0.2493
+Item 2 0.4063 0.5937  0.3791
+Item 3 0.3641 0.6359  0.5575
+Item 4 0.3826 0.6174  0.4786
+
+
+Frequencies of total scores:
+       0  1  2  3   4
+Freq 103 33 37 65 141
+
+
+Point Biserial correlation with Total Score:
+       Included Excluded
+Item 1   0.8164   0.6673
+Item 2   0.8674   0.7541
+Item 3   0.8769   0.7737
+Item 4   0.8355   0.7025
+
+
+Cronbach&#39;s alpha:
+                  value
+All Items        0.8707
+Excluding Item 1 0.8573
+Excluding Item 2 0.8223
+Excluding Item 3 0.8148
+Excluding Item 4 0.8430
+
+
+Pairwise Associations:
+  Item i Item j p.value
+1      1      4  &lt;2e-16
+2      1      3  &lt;2e-16
+3      2      4  &lt;2e-16
+4      1      2  &lt;2e-16
+5      2      3  &lt;2e-16
+6      3      4  &lt;2e-16
+
+
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anna Bavaresco 2025.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

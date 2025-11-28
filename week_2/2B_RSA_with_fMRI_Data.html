@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2B - Representational Similarity with Story Reading fMRI data &mdash; ANCM 2025 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2C - Language Model Surprisal and EEG Data" href="2C_LM_Surprisal_and_EEG_data.html" />
+    <link rel="prev" title="2A - Language model refresher" href="2A_Language_Model_Refresher.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ANCM 2025
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Week 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../week_1/1_Logistic_regression_for_musical_tags.html">1 - Logistic Regression for Musical Tags</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Week 2:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="2A_Language_Model_Refresher.html">2A - Language model refresher</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2B - Representational Similarity with Story Reading fMRI data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#QUESTIONS"><strong>QUESTIONS</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2C_LM_Surprisal_and_EEG_data.html">2C - Language Model Surprisal and EEG Data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Week 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../week_3/3_IRT_Stan.html">3 - Item Response Theory with Stan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Week 4:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../week_4/4_Vision%2C_Convolutions_and_Recurrence.html">4 - Vision, convolutions, recurrence</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Inspiration:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project_ideas.html">Project Inspiration</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ANCM 2025</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">2B - Representational Similarity with Story Reading fMRI data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/week_2/2B_RSA_with_fMRI_Data.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="2B---Representational-Similarity-with-Story-Reading-fMRI-data">
+<h1>2B - Representational Similarity with Story Reading fMRI data<a class="headerlink" href="#2B---Representational-Similarity-with-Story-Reading-fMRI-data" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/annabavaresco/ancm2025/blob/main/docs/week_2/2B_RSA_with_fMRI_Data.ipynb"><img alt="View filled on Github" src="https://img.shields.io/static/v1.svg?logo=github&amp;label=Repo&amp;message=View%20On%20Github&amp;color=lightgrey" /></a> <a class="reference external" href="https://colab.research.google.com/github/annabavaresco/ancm2025/blob/main/docs/week_2/2B_RSA_with_fMRI_Data.ipynb"><img alt="View filled in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><em>by Marianne de Heer Kloots, September 2022</em></p>
+<hr class="docutils" />
+<p>In the first part of this week’s tutorial we saw how the structure of the embeddings space changes over model layers: the embeddings become more contextualized in deeper layers.</p>
+<p>Recent work comparing language model activations to human brain measurements suggests that these deeper and more contextualized layers align better with the brain than the earlier layers (for example <a class="reference external" href="https://doi.org/10.1038/s42003-022-03036-1">Caucheteux &amp; King, 2022</a>; <a class="reference external" href="https://doi.org/10.1073/pnas.2105646118">Schrimpf et al., 2021</a>). These studies use trained regression models to map from model activations to brain signals, but we can also use RSA to analyze the same phenomenon. Just as
+we computed the correlation of RDMs from different model layers before, we can now compute the correlation between model and brain RDMs. So is it true that embeddings from later model layers form more brain-like representational spaces, compared to earlier model layers?</p>
+<p>To answer this question, we’ll use fMRI scans recorded from one subject in an experiment where subjects read a chapter from the first Harry Potter book (<a class="reference external" href="https://doi.org/10.1371/journal.pone.0123148">Wehbe et al., 2014</a>). Participants in the experiment were presented with the chapter text through Rapid Serial Visual Presentation (RSVP), meaning that the words of the chapter appeared one by one on a screen, for 500 ms each. The brain scan TR (repetition time) was 2 seconds, meaning that every
+2 seconds a 3d brain volume was recorded. This means that (almost*) every scan records the activity of reading 4 words. We’ll therefore also average the embeddings over 4 words on the model side, in order to create so-called ‘TR embeddings’ that give us the same temporal resolution as we have from the participant. In addition, to account for the haemodynamic response delay**, we take the brain scan recorded 4 seconds (2 TRs) after each text presentation as the response to that text. Finally,
+we restrict ourselves to voxels recorded in the left anterior temporal lobe (LATL), which is generally known to be an important area for semantics and language processing (see e.g. <a class="reference external" href="https://doi.org/10.1523/JNEUROSCI.0041-13.2013">Bonner &amp; Price, 2013</a>, <a class="reference external" href="https://doi.org/10.1093/cercor/bhs170">Bemis &amp; Pylkkänen, 2013</a>).</p>
+<hr class="docutils" />
+<p>* In practice, the experiment was divided into 4 blocks, and the last scan in each block contains reading activity for only 3 words. In the code below, we provide you with all 1295 TR texts (one on each line in the <code class="docutils literal notranslate"><span class="pre">tr_texts.txt</span></code> file) and the corresponding 1295 brain responses, so the inputs and recorded activations are aligned correctly.</p>
+<p>** The signal recorded in fMRI studies is the so-called Blood Oxygen Level Dependent (BOLD) response, which takes about <a class="reference external" href="https://www.nature.com/scitable/blog/brain-metrics/what_does_fmri_measure/">4-6 seconds</a> after stimulus presentation to reach its peak. We choose 4 seconds here based on earlier work where we found this to work best for this dataset (<a class="reference external" href="https://aclanthology.org/W19-4820/">Abnar et al., 2019</a>; figure 6).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="o">-</span><span class="n">q</span> <span class="n">install</span> <span class="n">pathlib</span> <span class="n">wget</span> <span class="n">transformers</span> <span class="n">nilearn</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  Preparing metadata (setup.py) ... done
+     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">10.4/10.4 MB</span> <span class="ansi-red-fg">23.9 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+  Building wheel for wget (setup.py) ... done
+</pre></div></div>
+</div>
+<p>For this part of the tutorial, we import some helper functions from Marianne’s research code for dealing with the fMRI data. If you’re curious to know what is going on under the hood, you can look up any specific function in the <a class="reference external" href="https://github.com/clclab/ANCM/blob/main/lab2/fmri_data_loading.py">fmri_data_loading.py</a> file, or run a code cell with a function name followed by <code class="docutils literal notranslate"><span class="pre">?</span></code>. Although some of these functions have different names than the ones we used before, it should be clear that we
+will be following the same steps overall: computing distance matrices for different layers of our model (and now also for the brain), and then calculate the correlation between them for RSA.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wget</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;fmri_data_loading.py&#39;</span><span class="p">):</span>
+  <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/clclab/ANCM/main/lab2/fmri_data_loading.py&#39;</span><span class="p">)</span>
+<span class="n">tr_texts_file</span> <span class="o">=</span> <span class="s1">&#39;tr_texts.txt&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">tr_texts_file</span><span class="p">):</span>
+  <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/clclab/ANCM/main/lab2/tr_texts.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModel</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
+<span class="kn">import</span> <span class="nn">nilearn.signal</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">fmri_data_loading</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the model and tokenizer</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;bert-base-uncased&#39;</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+            <span class="n">output_hidden_states</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">output_attentions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># if you want to try a gpt-like model later,</span>
+<span class="c1"># we&#39;ll need these tokenizer settings</span>
+<span class="k">if</span> <span class="s1">&#39;gpt&#39;</span> <span class="ow">in</span> <span class="n">model_name</span><span class="p">:</span>
+  <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+                                            <span class="n">add_prefix_space</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">tokenizer</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token</span>
+<span class="c1"># but this will work for bert</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+
+<span class="n">torch</span><span class="o">.</span><span class="n">set_grad_enabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_token.py:89: UserWarning:
+The secret `HF_TOKEN` does not exist in your Colab secrets.
+To authenticate with the Hugging Face Hub, create a token in your settings tab (https://huggingface.co/settings/tokens), set it as secret in your Google Colab and restart your session.
+You will be able to reuse this secret in all of your notebooks.
+Please note that authentication is recommended but still optional to access public models or datasets.
+  warnings.warn(
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "66ab70e2df7c46059adfc2bb11f58351", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2e28ef8ae068431fb889a05b99013dd8", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dff032f7adff4384887736627e95ae48", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "13d3f3dca0fe432493efc7f0ad7343d6", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29241987ae854456b68c14ec7f47eb87", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;torch.autograd.grad_mode.set_grad_enabled at 0x7ba577fbb2e0&gt;
+</pre></div></div>
+</div>
+<p>Below we download the data from subject 8 in the Wehbe et al. (2014) experiment. You can find more information on this dataset, as well as the data from other subjects, <a class="reference external" href="http://www.cs.cmu.edu/~fmri/plosone/">here</a>. In particular, a description of all the information available per subject is available <a class="reference external" href="http://www.cs.cmu.edu/~fmri/plosone/files/description.txt">here</a> (the original data is stored in .mat files, which we convert to python dictionaries below, but they contain the same
+information; you can run the <code class="docutils literal notranslate"><span class="pre">load_subj_dict?</span></code> cell below to see more information about the structure of the dictionaries).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">load_subj_dict</span><span class="err">?</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># download data for subject 8</span>
+<span class="n">subj_raw_file</span> <span class="o">=</span> <span class="s1">&#39;subject_8.mat&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">subj_raw_file</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.cs.cmu.edu/~fmri/plosone/files/subject_8.mat&#39;</span>
+    <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># load into python dictionary</span>
+<span class="n">subj_dict</span> <span class="o">=</span> <span class="n">load_subj_dict</span><span class="p">(</span><span class="n">subj_raw_file</span><span class="p">)</span>
+
+<span class="c1"># preprocess fMRI signals</span>
+<span class="n">subj_cleaned_file</span> <span class="o">=</span> <span class="s1">&#39;subject_8_clean.npy&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">subj_cleaned_file</span><span class="p">):</span>
+    <span class="c1"># preprocessing parameters</span>
+    <span class="n">cleaning_params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;t_r&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>                 <span class="c1"># TR length in seconds</span>
+        <span class="s1">&#39;low_pass&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>         <span class="c1"># low-pass filter frequency cutoff (Hz)</span>
+        <span class="s1">&#39;high_pass&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>       <span class="c1"># high-pass filter frequency cutoff (Hz)</span>
+        <span class="s1">&#39;standardize&#39;</span><span class="p">:</span> <span class="s1">&#39;zscore&#39;</span><span class="p">,</span>  <span class="c1"># standardization method</span>
+        <span class="s1">&#39;detrend&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>          <span class="c1"># whether to apply detrending</span>
+    <span class="p">}</span>
+
+    <span class="n">cleaned_subj_dict</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">subj_dict</span><span class="p">)</span>
+    <span class="n">cleaned_subj_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nilearn</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">subj_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span>
+                                    <span class="n">runs</span><span class="o">=</span><span class="n">subj_dict</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span>
+                                    <span class="o">**</span><span class="n">cleaning_params</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">subj_cleaned_file</span><span class="p">,</span> <span class="n">cleaned_subj_dict</span><span class="p">)</span>
+<span class="n">subj_dict</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">subj_cleaned_file</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Below we select the regions of interest (ROIs) in the left anterior temporal lobe (LATL) from which we will retrieve the brain responses and construct the brain-side RDMs. You can later define another selection of ROIs yourself, if you like (run <code class="docutils literal notranslate"><span class="pre">subj_dict['meta']['ROInumToName']</span></code> to see a list of all available ROIs in this dataset, they are based on the <a class="reference external" href="https://www.pmod.com/files/download/v36/doc/pneuro/6750.htm">AAL Single-Subject atlas</a>).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># subregions of left-anterior temporal lobe</span>
+<span class="n">LATL_ROI</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Temporal_Sup_L&#39;</span><span class="p">,</span> <span class="s1">&#39;Temporal_Pole_Sup_L&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Temporal_Mid_L&#39;</span><span class="p">,</span> <span class="s1">&#39;Temporal_Pole_Mid_L&#39;</span><span class="p">,</span> <span class="s1">&#39;Temporal_Inf_L&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Fusiform_L&#39;</span><span class="p">,</span> <span class="s1">&#39;ParaHippocampal_L&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>We now have the brain response scans for each of the 1295 text TRs; there are 4210 voxels in our LATL ROI selection.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">brain_responses</span> <span class="o">=</span> <span class="n">get_text_response_scans</span><span class="p">(</span><span class="n">subj_dict</span><span class="p">,</span>
+                                          <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                          <span class="n">ROI</span><span class="o">=</span><span class="n">LATL_ROI</span><span class="p">)</span> <span class="c1"># delay in TRs (1 TR = 2 sec)</span>
+<span class="n">brain_responses</span><span class="p">[</span><span class="s1">&#39;voxel_signals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1295, 4210)
+</pre></div></div>
+</div>
+<p>Below we load <code class="docutils literal notranslate"><span class="pre">tr_texts</span></code> (a list of texts, one for every TR containing the text presented during that TR), and we calculate the number of words presented during each TR (a list of mostly 4s and some 3s). We then split the text into sentences which we will present to our model to extract the embeddings. Note that for BERT, this means that the model will for some TRs have access to the words at the end of the sentence, which the experiment participant hadn’t seen at the time the brain scan was
+recorded. If you’d like, you can try out different ways of providing input text to the model, for example a fixed text window for each TR excluding words presented after that TR (a way to ‘make BERT causal’ as discussed in the lecture).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tr_texts</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">tr_texts_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+<span class="n">words_per_tr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">tr</span> <span class="ow">in</span> <span class="n">tr_texts</span><span class="p">]</span>
+<span class="n">hp_sentences</span> <span class="o">=</span> <span class="n">create_context_sentences</span><span class="p">(</span><span class="n">tr_texts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We process all sentences of the Harry Potter chapter through BERT, and extract the embeddings for each word at every layer. There are 5176 words and 13 ‘layers’ (input embeddings + 12 model layers), which each have a 768-dimensional activation vector for every word.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="c1"># this will take a few minutes</span>
+<span class="n">layer_acts_bert</span> <span class="o">=</span> <span class="n">get_layer_activations</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
+                      <span class="n">tokenizer</span><span class="p">,</span>
+                      <span class="n">hp_sentences</span><span class="p">)</span>
+<span class="n">layer_acts_bert</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">layer_acts_bert</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">layer_acts_bert</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+BertSdpaSelfAttention is used but `torch.nn.functional.scaled_dot_product_attention` does not support non-absolute `position_embedding_type` or `output_attentions=True` or `head_mask`. Falling back to the manual attention implementation, but specifying the manual implementation will be required from Transformers version v5.0.0 onwards. This warning can be removed using the argument `attn_implementation=&#34;eager&#34;` when loading the model.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(5176, 13, 768)
+CPU times: user 2min 52s, sys: 616 ms, total: 2min 53s
+Wall time: 2min 55s
+</pre></div></div>
+</div>
+<p>Then we average over the words in each TR to get the ‘TR embeddings’:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tr_embeddings_bert</span> <span class="o">=</span> <span class="n">get_tr_embeddings</span><span class="p">(</span><span class="n">layer_acts_bert</span><span class="p">,</span> <span class="n">words_per_tr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tr_embeddings_bert</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1295, 13, 768)
+</pre></div></div>
+</div>
+<p>Now we have activations vectors for each of the 1295 text TRs for each layer of the model. We also have brain responses to each of the 1295 text TRs, so we can create RDMs for both! (13 RDMs for each layer of the model, and 1 RDM for subject 8’s brain responses)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RDMs_bert</span> <span class="o">=</span> <span class="p">[</span><span class="n">vector_distance_matrix</span><span class="p">(</span><span class="n">tr_embeddings_bert</span><span class="p">[:,</span><span class="n">layer</span><span class="p">,:],</span>
+                                   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;cosine&quot;</span><span class="p">)</span>
+             <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tr_embeddings_bert</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="n">RDM_brain</span> <span class="o">=</span> <span class="n">vector_distance_matrix</span><span class="p">(</span><span class="n">brain_responses</span><span class="p">[</span><span class="s1">&#39;voxel_signals&#39;</span><span class="p">],</span>
+                                   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;cosine&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">RDMs_bert</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># one of the model RDMs</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">RDM_brain</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># the brain RDM</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1295, 1295)
+(1295, 1295)
+</pre></div></div>
+</div>
+<p>We can compute the RSA score (Pearson’s correlation) between each of the model layers and the brain responses now.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_scores_bert</span> <span class="o">=</span> <span class="p">[</span><span class="n">compute_rsa_score</span><span class="p">(</span><span class="n">RDM_brain</span><span class="p">,</span>
+                                     <span class="n">RDMs_bert</span><span class="p">[</span><span class="n">layer</span><span class="p">],</span>
+                                     <span class="n">score</span><span class="o">=</span><span class="s2">&quot;pearsonr&quot;</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">RDMs_bert</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+<p>As we see below, the correlation values themselves are quite low (they might get a bit higher if you provide the model with more context text). But we do observe the expected qualitative pattern: the higher layers with more contextualized embeddings score up to twice as high in representational similarity compared to lower layers.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rsa_scores_bert</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;model layer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rsa_scores_bert</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;similarity score (pearson</span><span class="se">\&#39;</span><span class="s1">s r)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Model-brain similarity over model layers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/week_2_2B_RSA_with_fMRI_Data_24_0.png" src="../_images/week_2_2B_RSA_with_fMRI_Data_24_0.png" />
+</div>
+</div>
+<section id="QUESTIONS">
+<h2><strong>QUESTIONS</strong><a class="headerlink" href="#QUESTIONS" title="Link to this heading"></a></h2>
+<p>At first sight, the result above seems to nicely confirm the idea that the more contextualized embeddings from middle-to-high model layers show better alignment with human brain responses. But what have we really learned about language processing?</p>
+<p>To make sure that this result really captures something about the linguistic processes involved in story reading, we would ideally compare it to some ‘control’ or ‘baseline’ condition where we would <em>not</em> expect the effect to occur. One option would be to compare results with a different brain region that we would not expect to be as much involved in language processing. Another option could be to shuffle the RDMs before computing the RSA scores, such that we compute the correlation between
+model and brain RDMs for unmatched TRs (you could do this several times to create a ‘null distribution’ of RSA scores). You might also want to see if the result can be reproduced at the group level (comparing RSA scores across individual subjects or computing a mean RDM for several subjects), compute some kind of ‘noise ceiling’ based on RDM-correlation across subjects (<a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1003553">Nili et al., 2014</a>), or compare to results using a different model
+architecture (like GPT-2).</p>
+<p>Choose one of the options above, and compare the result obtained above to your ‘baseline’ / ‘control’ condition or analysis extension. Then write a concise report (less than one page) describing the approach you have used and answering the following questions:</p>
+<ul class="simple">
+<li><p>Do your new results still confirm the idea that contextualized embeddings from middle-to-high model layers show better alignment with language processing in the human brain?</p></li>
+<li><p>Why is your particular baseline / control / extension important to include in analyses comparing DNN activations and brain responses?</p></li>
+<li><p>What are some limitations of this particular baseline / control / extension for your analysis (i.e., alternative explanations that it does not rule out yet)?</p></li>
+</ul>
+<p>Please also include in your report one (or more) plot(s) comparing the result obtained above to your ‘baseline’ / ‘control’ condition or analysis extension. The plot doesn’t count towards the page limit.</p>
+<script type="application/vnd.jupyter.widget-state+json">
+{"0c06429c1c084ed182a108c4ba5a8df6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_10f964364bf14f37a0b6368dcbba24a7", "placeholder": "\u200b", "style": "IPY_MODEL_ab2018b8d26e4b458997008a6e68e4ef", "value": "tokenizer_config.json:\u2007100%"}}, "10f964364bf14f37a0b6368dcbba24a7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "125fcbfff304461894fb303a452a4ea3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_4d8eba66d77944e1bead86786d8394bd", "max": 48, "min": 0, "orientation": "horizontal", "style": "IPY_MODEL_5daa68ad4a234283a1c11b5186dab0d2", "value": 48}}, "13d3f3dca0fe432493efc7f0ad7343d6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_14d420c1d4bd4551a9ebb5436811d626", "IPY_MODEL_32c8634bf147493582a7c89964b22b2e", "IPY_MODEL_67e3f45d827d4b47b5e683c69f9e70bc"], "layout": "IPY_MODEL_8ffa2d196a284e73bb05a9ff103862ef"}}, "1456ea33502b4e7e8983a80e83bd2d28": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "14d420c1d4bd4551a9ebb5436811d626": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_bca42bf5e7c444d19cbc0717bfb7f4d6", "placeholder": "\u200b", "style": "IPY_MODEL_88b4d5c1c8224c7394e7ea1a78e962ee", "value": "vocab.txt:\u2007100%"}}, "14f6db644cc143808bced8e0bfb39cea": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "1548d053930146bcb292299212a2e6ca": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "15f8d58f0c274dd6a2af37658a06bec9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_d1219abffacb4374915cef08607d68d9", "placeholder": "\u200b", "style": "IPY_MODEL_c579f60b321849bfb06fb6ac7063b8c8", "value": "tokenizer.json:\u2007100%"}}, "19f9c85fb156441d9b926e495042955f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1ac6f0d4fc9246fd83f8cd4786410923": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_f1dbfe41d5d1460da49d220ac8001887", "placeholder": "\u200b", "style": "IPY_MODEL_d3e704478033467ca496b6589665a3a7", "value": "config.json:\u2007100%"}}, "1e6c7231ab2c4263ad98690e1ab9d850": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "29241987ae854456b68c14ec7f47eb87": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_15f8d58f0c274dd6a2af37658a06bec9", "IPY_MODEL_2d1307f732974d4aa1026b880dc3e640", "IPY_MODEL_cfb8eb3e1ebf4d91a3f52c030f3642cc"], "layout": "IPY_MODEL_1548d053930146bcb292299212a2e6ca"}}, "2d1307f732974d4aa1026b880dc3e640": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_19f9c85fb156441d9b926e495042955f", "max": 466062, "min": 0, "orientation": "horizontal", "style": "IPY_MODEL_1e6c7231ab2c4263ad98690e1ab9d850", "value": 466062}}, "2d2d94db4ae74a18a8c026bf6dfb7f69": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2e28ef8ae068431fb889a05b99013dd8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_e859784c81c94b918bc6f7ceb2654dff", "IPY_MODEL_d08ac99657294f878301d6b557ae42f1", "IPY_MODEL_5a664cfcb8944bd3b1ded120fc7c02a0"], "layout": "IPY_MODEL_4acfdd1354d4419e9abbd15765478ba2"}}, "32c8634bf147493582a7c89964b22b2e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_6128fb10cc314d4993556095e95ef42d", "max": 231508, "min": 0, "orientation": "horizontal", "style": "IPY_MODEL_f2ef79b2274845f2baaf884f9941e283", "value": 231508}}, "4552826de1b94795b538d21dbfb11565": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "45cbf543fa4c44f0bafce317e2540ff1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_64be3bc93eaf40c684ff5e20e6fe4602", "placeholder": "\u200b", "style": "IPY_MODEL_849d9eaeea8043c89c640260c9a6bc06", "value": "\u2007570/570\u2007[00:00&lt;00:00,\u200710.5kB/s]"}}, "4acfdd1354d4419e9abbd15765478ba2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4c30d2a75a2849eaa5660ccbd8e02d05": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4d8eba66d77944e1bead86786d8394bd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5a664cfcb8944bd3b1ded120fc7c02a0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_ec6e1fc04b0f4aaba7adfdd94bed17de", "placeholder": "\u200b", "style": "IPY_MODEL_a51d67530dd44e9ba2dec41bfa583c4a", "value": "\u2007440M/440M\u2007[00:02&lt;00:00,\u2007200MB/s]"}}, "5daa68ad4a234283a1c11b5186dab0d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "6128fb10cc314d4993556095e95ef42d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "64be3bc93eaf40c684ff5e20e6fe4602": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "66ab70e2df7c46059adfc2bb11f58351": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_1ac6f0d4fc9246fd83f8cd4786410923", "IPY_MODEL_9612167f10df4021b0cea3801d2c6775", "IPY_MODEL_45cbf543fa4c44f0bafce317e2540ff1"], "layout": "IPY_MODEL_8d30e1d8a0c040eca00f7e0753ef6365"}}, "67e3f45d827d4b47b5e683c69f9e70bc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_2d2d94db4ae74a18a8c026bf6dfb7f69", "placeholder": "\u200b", "style": "IPY_MODEL_14f6db644cc143808bced8e0bfb39cea", "value": "\u2007232k/232k\u2007[00:00&lt;00:00,\u20071.40MB/s]"}}, "7523d49385b745a99a0461f997e57df8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "849d9eaeea8043c89c640260c9a6bc06": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "88b4d5c1c8224c7394e7ea1a78e962ee": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "8d30e1d8a0c040eca00f7e0753ef6365": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8ffa2d196a284e73bb05a9ff103862ef": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9612167f10df4021b0cea3801d2c6775": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_9db88eeea7b640b2a53275ee9a817dcc", "max": 570, "min": 0, "orientation": "horizontal", "style": "IPY_MODEL_d3d9926272004bf09383ed71ef4950ba", "value": 570}}, "9db88eeea7b640b2a53275ee9a817dcc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a51d67530dd44e9ba2dec41bfa583c4a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "aa1996bf620246fcb5d77f38a3a85cdb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "ab2018b8d26e4b458997008a6e68e4ef": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b3857dd2378349c1b3cca864039a9ad8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bca42bf5e7c444d19cbc0717bfb7f4d6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c579f60b321849bfb06fb6ac7063b8c8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "cfb8eb3e1ebf4d91a3f52c030f3642cc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_f8f45ae0fda04767829b7ab0f13f8ae9", "placeholder": "\u200b", "style": "IPY_MODEL_aa1996bf620246fcb5d77f38a3a85cdb", "value": "\u2007466k/466k\u2007[00:00&lt;00:00,\u20071.93MB/s]"}}, "d08ac99657294f878301d6b557ae42f1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_f556230db104493daf232bcde7414f82", "max": 440449768, "min": 0, "orientation": "horizontal", "style": "IPY_MODEL_7523d49385b745a99a0461f997e57df8", "value": 440449768}}, "d1219abffacb4374915cef08607d68d9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d3d9926272004bf09383ed71ef4950ba": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "d3e704478033467ca496b6589665a3a7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "d769b2b145ec4c6fb4512ca8eee03b04": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dff032f7adff4384887736627e95ae48": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_0c06429c1c084ed182a108c4ba5a8df6", "IPY_MODEL_125fcbfff304461894fb303a452a4ea3", "IPY_MODEL_e211a8e743354e4a8383dbf95c409318"], "layout": "IPY_MODEL_d769b2b145ec4c6fb4512ca8eee03b04"}}, "e211a8e743354e4a8383dbf95c409318": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_4c30d2a75a2849eaa5660ccbd8e02d05", "placeholder": "\u200b", "style": "IPY_MODEL_1456ea33502b4e7e8983a80e83bd2d28", "value": "\u200748.0/48.0\u2007[00:00&lt;00:00,\u20071.40kB/s]"}}, "e859784c81c94b918bc6f7ceb2654dff": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_b3857dd2378349c1b3cca864039a9ad8", "placeholder": "\u200b", "style": "IPY_MODEL_4552826de1b94795b538d21dbfb11565", "value": "model.safetensors:\u2007100%"}}, "ec6e1fc04b0f4aaba7adfdd94bed17de": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f1dbfe41d5d1460da49d220ac8001887": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f2ef79b2274845f2baaf884f9941e283": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "f556230db104493daf232bcde7414f82": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f8f45ae0fda04767829b7ab0f13f8ae9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}}
+</script></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2A_Language_Model_Refresher.html" class="btn btn-neutral float-left" title="2A - Language model refresher" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2C_LM_Surprisal_and_EEG_data.html" class="btn btn-neutral float-right" title="2C - Language Model Surprisal and EEG Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anna Bavaresco 2025.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
